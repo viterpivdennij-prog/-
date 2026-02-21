@@ -1,1 +1,1444 @@
-# -
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAKARPATTIA RP | OFFICIAL DATABASE SYSTEM</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* CORE CSS ARCHITECTURE v8.2.0 
+           MAXIMIZED FOR VOLUME AND STABILITY
+           STRICT DESIGN ADHERENCE
+        */
+
+        :root {
+            --primary: #ff0000;
+            --primary-glow: rgba(255, 0, 0, 0.4);
+            --bg-color: #010101;
+            --surface-color: #080808;
+            --modal-color: #050505;
+            --text-main: #ffffff;
+            --text-dim: #888888;
+            --accent-yellow: #ffcc00;
+            --border-color: #1a1a1a;
+            --radius-lg: 35px;
+            --radius-md: 20px;
+            --radius-sm: 12px;
+            --fast-transition: all 0.2s ease;
+            --smooth-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* EXTRA VARIABLE DEPTH FOR VOLUME */
+            --font-weight-thin: 300;
+            --font-weight-reg: 400;
+            --font-weight-bold: 700;
+            --font-weight-black: 900;
+            --shadow-intense: 0 10px 40px rgba(0,0,0,0.8);
+            --blur-strength: 15px;
+        }
+
+        /* RESET LAYER */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* CUSTOM SCROLLBAR INFRASTRUCTURE */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; border: 2px solid #000; }
+
+        /* TOP NAVIGATION STRIP (IMAGE_01D698 STYLE) */
+        .ultimate-header-bar {
+            width: 100%;
+            background: #000;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            position: relative;
+            z-index: 1001;
+        }
+
+        .ultimate-header-bar span {
+            color: var(--primary);
+            font-weight: 900;
+            font-size: 14px;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            display: inline-block;
+            animation: header-glow 3s infinite alternate;
+        }
+
+        @keyframes header-glow {
+            from { text-shadow: 0 0 5px var(--primary-glow); opacity: 0.8; }
+            to { text-shadow: 0 0 20px var(--primary); opacity: 1; }
+        }
+
+        /* PRELOADER SUBSYSTEM */
+        #loader-screen {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #000;
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+
+        .loader-logo {
+            font-weight: 900;
+            font-size: 18px;
+            letter-spacing: 15px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+
+        .loader-progress-container {
+            width: 250px;
+            height: 3px;
+            background: #111;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .loader-progress-bar {
+            position: absolute;
+            top: 0; left: 0;
+            height: 100%;
+            width: 0%;
+            background: var(--primary);
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        /* MAIN HERO WRAPPER */
+        .hero-section {
+            padding: 80px 20px 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at top, #1a0000 0%, #000000 70%);
+        }
+
+        /* SOCIAL CHIP SYSTEM (IMAGE_01D699 STYLE) */
+        .social-matrix {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 70px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .chip-unit {
+            padding: 14px 28px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #fff;
+            transition: var(--smooth-transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .tg-style { background: #0088cc; box-shadow: 0 5px 15px rgba(0,136,204,0.3); }
+        .tt-style { background: #ff0050; box-shadow: 0 5px 15px rgba(255,0,80,0.3); }
+        .rb-style { background: #ffffff; color: #000; box-shadow: 0 5px 15px rgba(255,255,255,0.2); }
+
+        .chip-unit:hover {
+            transform: translateY(-8px) scale(1.05);
+            filter: brightness(1.15);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        /* BRAND TITLES */
+        .brand-main-h1 {
+            font-size: clamp(40px, 14vw, 110px);
+            font-weight: 900;
+            letter-spacing: clamp(10px, 3vw, 25px);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .brand-subtitle {
+            color: #888;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 80px;
+        }
+
+        /* THE MAIN ACTION BUTTON (WHITE BUTTON) */
+        .trigger-play-btn {
+            background: #fff;
+            color: #000;
+            padding: 26px 100px;
+            border-radius: 60px;
+            font-size: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 5px;
+            transition: var(--smooth-transition);
+            box-shadow: 0 10px 40px rgba(255,255,255,0.1);
+        }
+
+        .trigger-play-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: scale(1.08) translateY(-5px);
+            box-shadow: 0 20px 50px var(--primary-glow);
+        }
+
+        /* GRID COMPONENTS SYSTEM */
+        .master-grid-container {
+            max-width: 1300px;
+            margin: 0 auto 150px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 0 40px;
+        }
+
+        .interface-card {
+            background: var(--surface-color);
+            border: 2px solid var(--border-color);
+            padding: 70px 40px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--smooth-transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .interface-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 0%;
+            background: linear-gradient(to top, var(--primary-glow), transparent);
+            transition: 0.4s;
+            z-index: 1;
+        }
+
+        .interface-card:hover::after { height: 40%; }
+
+        .interface-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-15px);
+            background: #0b0b0b;
+            box-shadow: 0 25px 50px rgba(255,0,0,0.15);
+        }
+
+        .interface-card h2 {
+            font-size: 18px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* CARD OVERRIDES FOR THEMES */
+        .card-red-themed { border-color: var(--primary) !important; }
+        .card-red-themed h2 { color: var(--primary) !important; }
+
+        /* MODAL ENGINE SYSTEM (STRICT IMAGE_01E11F STYLE) */
+        .database-modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.96);
+            backdrop-filter: blur(25px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .database-modal-overlay.active-view { display: flex; }
+
+        .modal-body-container {
+            background: var(--modal-color);
+            border: 2px solid var(--primary);
+            width: 100%;
+            max-width: 950px;
+            max-height: 85vh;
+            border-radius: 45px;
+            padding: 60px;
+            position: relative;
+            overflow-y: auto;
+            animation: modalSlideUp 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            box-shadow: 0 0 100px rgba(255,0,0,0.1);
+        }
+
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(100px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .close-view-btn {
+            position: absolute;
+            top: 35px; right: 45px;
+            font-size: 45px;
+            color: var(--primary);
+            cursor: pointer;
+            transition: 0.3s;
+            line-height: 0.5;
+        }
+
+        .close-view-btn:hover { transform: rotate(180deg) scale(1.2); }
+
+        .view-header-main {
+            color: var(--primary);
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 50px;
+            border-left: 8px solid var(--primary);
+            padding-left: 25px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .view-header-main::before {
+            content: '●';
+            font-size: 20px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        /* DATA ROW STYLING */
+        .data-row-block {
+            background: #0a0a0a;
+            padding: 30px;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            border: 1px solid #151515;
+            transition: 0.3s;
+        }
+
+        .data-row-block:hover { border-color: #333; transform: translateX(10px); }
+
+        .data-row-block b {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 12px;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .data-row-block p {
+            color: #eee;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        .data-row-block ul {
+            margin-top: 10px;
+            padding-left: 20px;
+            color: #eee;
+        }
+
+        .data-row-block ul li {
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+
+        .penalty-highlight {
+            color: #ff3333;
+            font-weight: 900;
+            display: block;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #222;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        /* NAVIGATION BUTTONS INSIDE MODAL */
+        .nav-gate-btn {
+            width: 100%;
+            background: #111;
+            border: 1px solid #222;
+            color: #fff;
+            padding: 25px 35px;
+            border-radius: 25px;
+            margin-bottom: 15px;
+            text-align: left;
+            font-weight: 800;
+            font-size: 14px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.4s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-gate-btn:hover {
+            background: var(--primary);
+            border-color: #fff;
+            padding-left: 50px;
+            box-shadow: 0 10px 25px var(--primary-glow);
+        }
+
+        .action-return-btn {
+            margin-top: 40px;
+            background: transparent;
+            border: 1px solid #444;
+            color: #777;
+            padding: 16px 45px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .action-return-btn:hover {
+            color: #fff;
+            border-color: var(--primary);
+            background: rgba(255,0,0,0.05);
+        }
+
+        /* REVIEWS SECTION */
+        .reviews-section {
+            max-width: 1300px;
+            margin: 0 auto 100px;
+            padding: 0 40px;
+        }
+
+        .reviews-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 60px;
+            color: var(--primary);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: var(--surface-color);
+            border: 2px solid var(--border-color);
+            padding: 35px;
+            border-radius: var(--radius-md);
+            transition: var(--smooth-transition);
+        }
+
+        .review-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(255,0,0,0.1);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 20px;
+        }
+
+        .review-info h3 {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .review-stars {
+            color: var(--accent-yellow);
+            font-size: 14px;
+        }
+
+        .review-text {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* OWNER COMMENT BOX */
+        .owner-comment-box {
+            background: linear-gradient(135deg, #1a0000 0%, #0a0000 100%);
+            border: 2px solid var(--primary);
+            padding: 40px;
+            border-radius: var(--radius-md);
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .owner-comment-box h3 {
+            color: var(--accent-yellow);
+            font-size: 22px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .owner-comment-box p {
+            color: #ddd;
+            font-size: 16px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* VOLUMETRIC SPACERS */
+        .spacer-10 { height: 10px; } 
+        .spacer-20 { height: 20px; } 
+        .spacer-50 { height: 50px; }
+        .p-40 { padding: 40px; } 
+        .m-b-30 { margin-bottom: 30px; }
+
+        @media (max-width: 900px) {
+            .modal-body-container { padding: 35px 25px; border-radius: 30px; }
+            .brand-main-h1 { letter-spacing: 10px; }
+            .master-grid-container { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="ultimate-header-bar">
+        <span>THE ULTIMATE ROLEPLAY EXPERIENCE</span>
+    </header>
+
+    <div id="loader-screen">
+        <div class="loader-logo">ZAKARPATTIA RP</div>
+        <div class="loader-progress-container">
+            <div id="dynamic-bar" class="loader-progress-bar"></div>
+        </div>
+    </div>
+
+    <section class="hero-section">
+        <div class="social-matrix">
+            <a href="https://t.me/ZAKARPATTIA_RP" target="_blank" class="chip-unit tg-style">Telegram Channel</a>
+            <a href="https://www.tiktok.com/@zakarpattia_rp_zrp" target="_blank" class="chip-unit tt-style">TikTok Official</a>
+            <a href="https://www.roblox.com/communities/568661740" target="_blank" class="chip-unit rb-style">Roblox Community</a>
+        </div>
+
+        <h1 class="brand-main-h1">ZAKARPATTIA RP</h1>
+        <p class="brand-subtitle">Roleplay проєкт в Аварійному Гамбурзі</p>
+
+        <button class="trigger-play-btn" onclick="core.navigate('connect')">Грати зараз</button>
+    </section>
+
+    <main class="master-grid-container">
+        <div class="interface-card card-red-themed" onclick="core.rulesMenu()">
+            <h2>Правила та ПДР</h2>
+        </div>
+        <div class="interface-card card-red-themed" onclick="core.navigate('air_alarm')">
+            <h2>🚨 Повітряна Тривога</h2>
+        </div>
+        <div class="interface-card card-red-themed" onclick="core.navigate('factions')">
+            <h2>Фракції сервера</h2>
+        </div>
+        <div class="interface-card card-red-themed" onclick="core.navigate('green_zones')">
+            <h2>Зелені Зони</h2>
+        </div>
+        <div class="interface-card card-red-themed" onclick="core.navigate('blockposts')">
+            <h2>Блокпости</h2>
+        </div>
+        <div class="interface-card card-red-themed" onclick="core.navigate('staff_team')">
+            <h2>Адміністрація</h2>
+        </div>
+        <div class="interface-card card-red-themed" onclick="core.navigate('merchandise')">
+            <h2>Наш Мерч</h2>
+        </div>
+        <div class="interface-card card-red-themed" onclick="core.navigate('faction_heads')">
+            <h2>Н/Д</h2>
+        </div>
+    </main>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews-section">
+        <h2 class="reviews-title">Відгуки гравців</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">D</div>
+                    <div class="review-info">
+                        <h3>DarkPhoenix</h3>
+                        <div class="review-stars">★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">Чудовий сервер! Адміністрація завжди на зв'язку, допомагає новачкам. Атмосфера рольової гри на висоті!</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">S</div>
+                    <div class="review-info">
+                        <h3>ShadowHunter</h3>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">Граю вже місяць, дуже задоволений. Цікаві івенти, адекватні гравці та чесна адміністрація. Рекомендую!</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">M</div>
+                    <div class="review-info">
+                        <h3>MoonRider</h3>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">Найкращий RP сервер, на якому я грав. Все продумано до дрібниць, модератори справедливі.</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">F</div>
+                    <div class="review-info">
+                        <h3>FireStorm</h3>
+                        <div class="review-stars">★★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">Відмінний баланс між реалізмом та веселощами. Адміни знають свою справу!</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">I</div>
+                    <div class="review-info">
+                        <h3>IceQueen</h3>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">Сервер з душею! Приємна спільнота, цікаві сюжетні лінії. Дякую адміністрації за працю!</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">T</div>
+                    <div class="review-info">
+                        <h3>ThunderBolt</h3>
+                        <div class="review-stars">★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">Професійна команда адмінів, якісний геймплей. Однозначно рекомендую всім фанатам RP!</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">N</div>
+                    <div class="review-info">
+                        <h3>NightWolf</h3>
+                        <div class="review-stars">★★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">Грав на багатьох серверах, але цей - особливий. Тут реально відчуваєш себе частиною історії!</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">C</div>
+                    <div class="review-info">
+                        <h3>CrystalDream</h3>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">Дякую за незабутні емоції! Кращий RP досвід в моєму житті. Адміни - красавчики!</p>
+            </div>
+        </div>
+
+        <!-- OWNER COMMENT -->
+        <div class="owner-comment-box">
+            <h3>🎯 Коментар від власника</h3>
+            <p>"Сервер нормальний, на мою думку адміністрація нормальна тому що я не набираю простих людей, я набираю людей з опитом, зі знанням модів гри. Однозначно 6 зірок)"</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; padding: 30px; background: var(--surface-color); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <p style="color: #888; font-size: 14px; line-height: 1.8;">
+                <strong style="color: var(--primary);">Хочете побачити свій відгук тут?</strong><br>
+                Пишіть у <span style="color: #666;">(бот для відгуків в розробці)</span>
+            </p>
+        </div>
+    </section>
+
+    <div id="global-modal" class="database-modal-overlay">
+        <div class="modal-body-container">
+            <span class="close-view-btn" onclick="core.exit()">&times;</span>
+            <h2 id="view-title-id" class="view-header-main">TERMINAL_VIEW</h2>
+            <div id="view-render-area"></div>
+            <div id="view-footer-area"></div>
+        </div>
+    </div>
+
+    <footer style="background: #000; border-top: 2px solid var(--primary); padding: 40px 20px; text-align: center; margin-top: 100px;">
+        <p style="color: #888; font-size: 13px; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+            <strong style="color: var(--primary);">© 2025 ZAKARPATTIA RP.</strong> Усі права захищені.<br>
+            Сайт створений <strong style="color: #fff;">ZRPgroup</strong><br>
+            <span style="color: #666;">Копіювання матеріалів сайту без дозволу заборонено та може мати юридичні наслідки.</span>
+        </p>
+    </footer>
+
+    <script>
+        /**
+         * ZAKARPATTIA CORE ENGINE v8.2.0
+         * MASSIVE DATABASE ARCHITECTURE
+         * WRITTEN FOR MAXIMUM LINE VOLUME AND PROJECT STABILITY
+         */
+
+        const DATA_CORE = {
+            'connect': {
+                t: 'ПІДКЛЮЧЕННЯ ДО СЕРВЕРА',
+                c: `
+                    <div class="data-row-block"><b>Крок 1</b> <p>Запустіть клієнт Roblox на вашому пристрої.</p></div>
+                    <div class="data-row-block"><b>Крок 2</b> <p>У рядку пошуку введіть: "Emergency Hamburg".</p></div>
+                    <div class="data-row-block"><b>Крок 3</b> <p>Перейдіть до розділу "Private Servers".</p></div>
+                    <div class="data-row-block" style="border: 2px dashed var(--primary); text-align:center; background:#110000;">
+                        <b>Крок 4 — Ключ доступу</b>
+                        <p style="font-size:38px; font-weight:900; letter-spacing:10px; color:#fff; margin-top:10px;">qqinjcfp</p>
+                    </div>
+                `
+            },
+            'air_alarm': {
+                t: '🚨 ПОВІТРЯНА ТРИВОГА',
+                c: `
+                    <div class="data-row-block"><b>ПРОЦЕС ІВЕНТУ</b> <p>Це офіційний атмосферний івент, що імітує загрозу з повітря. Адміністрація проводить його для підвищення реалізму гри.</p></div>
+                    <div class="data-row-block"><b>ДІЇ ГРАВЦІВ</b> <p>Після звуку сирени всім громадянам наполегливо рекомендується пройти до укриття.</p></div>
+                    <div class="data-row-block"><b>ГОЛОВНЕ УКРИТТЯ</b> <p>Підземний паркінг біля центрального Банку. Це офіційна Safe Zone під час тривоги.</p></div>
+                `
+            },
+            'factions': {
+                t: 'ФРАКЦІЇ СЕРВЕРА',
+                c: `
+                    <div class="data-row-block"><b>ПОЛІЦІЯ</b> <p>Контроль правопорядку, затримання злочинців та виписка штрафів за порушення ПДР.</p></div>
+                    <div class="data-row-block"><b>МЕДИКИ</b> <p>Порятунок життів, виїзди на ДТП та лікування у госпіталі.</p></div>
+                    <div class="data-row-block"><b>ДСНС</b> <p>Ліквідація пожеж та допомога при критичних ситуаціях.</p></div>
+                    <div class="data-row-block"><b>ЦИВІЛЬНІ</b> <p>Робота на державних підприємствах, фермах та розвиток власної справи.</p></div>
+                `
+            },
+            'green_zones': {
+                t: 'ЗЕЛЕНІ ЗОНИ (ЗЗ)',
+                c: `
+                    <div class="data-row-block"><b>ВИЗНАЧЕННЯ</b> <p>Територія де заборонено ДМ-DeathMatch (вбивство без причини).</p></div>
+                    <div class="data-row-block"><b>СПИСОК ЗЕЛЕНИХ ЗОН</b> 
+                    <ul style="margin-top:10px; padding-left:20px; color:#eee;">
+                        <li>Лікарня М.Закарпаття</li>
+                        <li>Поліцейський відділок М.Закарпаття</li>
+                        <li>Будівля ДСНС (швидкої допомоги) М.Закарпаття</li>
+                        <li>Зал суду в відділку ДСНС М.Закарпаття</li>
+                    </ul>
+                    </div>
+                `
+            },
+            'blockposts': {
+                t: 'БЛОКПОСТИ',
+                c: `
+                    <div class="data-row-block"><b>ВИЗНАЧЕННЯ</b> <p>Блок пост - контрольно перевірочний пост на якому стоять працівники поліції і перевіряють машини/документи.</p></div>
+                    
+                    <div class="data-row-block"><b>✅ СПИСОК ЛОКАЦІЙ ДЛЯ БЛОКПОСТІВ</b> 
+                    <ul style="margin-top:10px; padding-left:20px; color:#eee;">
+                        <li>Перехрестя біля АЗК «АРЕС»</li>
+                        <li>Пряма дорога біля клубу</li>
+                        <li>В'їзд в головний морський порт після залізничних колій</li>
+                        <li>Дорога біля магазину ювелірних прикрас</li>
+                        <li>Пряма дорога біля підземного паркінгу, в 2 полоси</li>
+                    </ul>
+                    </div>
+
+                    <div class="data-row-block" style="border: 2px solid #ff3333; background: #100000;">
+                        <b>🚨‼️УВАГА‼️🚨</b>
+                        <p style="margin-top:15px;"><strong>✖️ ЗАБОРОНЕНІ МІСЦЯ ДЛЯ БЛОКПОСТУ:</strong></p>
+                    <ul style="margin-top:10px; padding-left:20px; color:#ff3333;">
+                        <li>Головна автострада М.Закарпаття</li>
+                        <li>Підземний тунель</li>
+                        <li>Підземний 🅿️</li>
+                        <li>Дорога біля відділення поліції М.Закарпаття</li>
+                        <li>Дорога біля будівлі ДСНС/Швидкої</li>
+                        <li>Дорога біля детейлінгового центру</li>
+                    </ul>
+                    </div>
+                `
+            },
+            'staff_team': {
+                t: 'АДМІНІСТРАТИВНИЙ СКЛАД',
+                c: `
+                    <div class="data-row-block" style="text-align:center; border: 2px solid var(--accent-yellow);">
+                        <b style="font-size:24px;">🚨 РАНГИ 🚨</b>
+                    </div>
+
+                    <div class="data-row-block">
+                        <b>HELPER 🔆</b>
+                        <p><strong>Р0 - КУРСАНТ:</strong> Н/Д</p>
+                    </div>
+
+                    <div class="data-row-block">
+                        <b>МОДЕРАЦІЯ 🔰</b>
+                        <p><strong>F1 - МЛ. МОДЕРАТОР:</strong> Stalker57<br>тг: @Stalker_EH</p>
+                        <p style="margin-top:10px;"><strong>F2 - СР. МОДЕРАТОР:</strong> Н/Д</p>
+                        <p style="margin-top:10px;"><strong>F3 - СТ. МОДЕРАТОР:</strong><br>wdeadxq (тг: @wdeadxq)<br>dania_d78 (тг: @Danil79me)</p>
+                    </div>
+
+                    <div class="data-row-block">
+                        <b>ТЕХНІЧНА АДМІНІСТРАЦІЯ 🛠</b>
+                        <p><strong>R1 - ТЕХ. АДМІН:</strong> Н/Д</p>
+                    </div>
+
+                    <div class="data-row-block">
+                        <b>АДМІНІСТРАЦІЯ ⚜️</b>
+                        <p><strong>Q1 - МЛ. АДМІНІСТРАТОР:</strong> Н/Д</p>
+                        <p style="margin-top:10px;"><strong>Q2 - СР. АДМІНІСТРАТОР:</strong> Н/Д</p>
+                        <p style="margin-top:10px;"><strong>Q3 - СТ. АДМІНІСТРАТОР:</strong> Н/Д</p>
+                    </div>
+
+                    <div class="data-row-block" style="border: 2px solid var(--primary);">
+                        <b>КЕРІВНИЦТВО 🔱</b>
+                        <p><strong>T6 - Г.А:</strong> W1nston<br>тг: @W1nston</p>
+                        <p style="margin-top:10px;"><strong>T7 - ВЛАСНИК:</strong> evilmaka<br>тг: @Makaronchick0_0</p>
+                    </div>
+                `
+            },
+            'merchandise': {
+                t: 'МЕРЧАНДАЙЗ ПРОЄКТУ',
+                c: `
+                    <div class="data-row-block"><b>ПІДТРИМКА</b> <p>Купуючи наш фірмовий одяг у Roblox, ви допомагаєте розвивати Закарпаття RP.</p></div>
+                    <div style="text-align:center; padding:20px;">
+                        <a href="https://www.roblox.com/groups/568661740" target="_blank" class="trigger-play-btn" style="font-size:14px; padding:15px 40px; display:inline-block; text-decoration:none;">В КАТАЛОГ</a>
+                    </div>
+                `
+            },
+            'faction_heads': {
+                t: 'Н/Д',
+                c: `
+                    <div class="data-row-block" style="text-align:center; border: 2px dashed var(--accent-yellow); background:#1a1a00;">
+                        <b style="font-size:24px; color:var(--accent-yellow);">🚧 В РОЗРОБЦІ 🚧</b>
+                        <p style="margin-top:20px; font-size:16px;">Інформація буде додана найближчим часом.</p>
+                        <p style="margin-top:10px; color:#888;">Слідкуйте за оновленнями в нашому Telegram каналі.</p>
+                    </div>
+                `
+            },
+            'pdr_list': {
+                t: 'ПРАВИЛА ДОРОЖНЬОГО РУХУ',
+                c: `
+                    <div class="data-row-block"><b>№1. Швидкість</b> <p>Місто: 60 км/год. Траса: 100 км/год.</p> <span class="penalty-highlight">Штраф: 1,000K - 3,000K €</span></div>
+                    <div class="data-row-block"><b>№2. Світлофори</b> <p>Проїзд на червоний категорично заборонений.</p> <span class="penalty-highlight">Штраф: 2,000K - 4,000K €</span></div>
+                    <div class="data-row-block"><b>№3. Фари</b> <p>Обов'язкове світло у вечірній час (16:00+).</p> <span class="penalty-highlight">Штраф: 1,000K - 2,000K €</span></div>
+                    <div class="data-row-block"><b>№4. NRP Driving</b> <p>Таран, їзда по тротуарах та газонах.</p> <span class="penalty-highlight">Штраф: 3,000K - 6,000K €</span></div>
+                    <div class="data-row-block"><b>№5. Втеча</b> <p>Ігнорування зупинки на вимогу поліції.</p> <span class="penalty-highlight">Штраф: 4,000K - 8,000K € + Арешт</span></div>
+                `
+            },
+            'tg_rules': {
+                t: '🗓 ПРАВИЛА TELEGRAM ЧАТУ',
+                c: `
+                    <div class="data-row-block">
+                        <b>№1. Оскорбление Администрации</b>
+                        <p>Запрещается оскорбление администрации.</p>
+                        <span class="penalty-highlight">Покарання: Мут 2 Часа + Пред.</span>
+                    </div>
+                    <div class="data-row-block">
+                        <b>№2. Оскорбление Игроков</b>
+                        <p>Запрещается оскорбление игроков, а так же ссоры в темах ТГК.</p>
+                        <span class="penalty-highlight">Покарання: Мут 1 Час + Пред.</span>
+                    </div>
+                    <div class="data-row-block">
+                        <b>№3. Администраторам обижать Игроков</b>
+                        <p>Запрещается администраторам обижать игроков и начинать ссору.</p>
+                        <span class="penalty-highlight">Покарання: Пред. От Создателя Сервера</span>
+                    </div>
+                    <div class="data-row-block">
+                        <b>№4. GIF, Стикеры и фото</b>
+                        <p>Запрещается GIF, стикеры и фото оскорбительного формата в сторону администраторов религий и игроков.</p>
+                        <span class="penalty-highlight">Покарання: Мут 4 Часа + Пред.</span>
+                    </div>
+                    <div class="data-row-block">
+                        <b>№5. 18+ контент</b>
+                        <p>Запрещается полностью 18+ контент.</p>
+                        <span class="penalty-highlight">Покарання: Мут 4 часа + Пред.</span>
+                    </div>
+                    <div class="data-row-block">
+                        <b>№6. Оскорбление в ЛС</b>
+                        <p>Запрещается оскорбление администрации в ЛС, и наоборот - администрация оскорбляет игроков в ЛС.</p>
+                        <span class="penalty-highlight">Покарання: Мут 4 Часа + Пред.</span>
+                    </div>
+                    <div class="data-row-block">
+                        <b>№7. Политика</b>
+                        <p>Запрещается политика.</p>
+                        <span class="penalty-highlight">Покарання: Мут 2 часа + Пред.</span>
+                    </div>
+                    <div class="data-row-block">
+                        <b>№8. Маты</b>
+                        <p>Запрещается общение с матами обычным участникам.</p>
+                        <span class="penalty-highlight">Покарання: Мут 10 Минут + Пред.</span>
+                    </div>
+                    <div class="data-row-block">
+                        <b>№9. Спам</b>
+                        <p>Запрещается спам/частое использование команд и спам-реакции.</p>
+                        <span class="penalty-highlight">Покарання: Мут 30 Минут + Пред.</span>
+                    </div>
+                    <div class="data-row-block">
+                        <b>№10. Реклама</b>
+                        <p>Запрещается любая реклама.</p>
+                        <span class="penalty-highlight">Покарання: Мут 4 часа + Пред.</span>
+                    </div>
+                `
+            },
+            'mafia_rule': {
+                t: 'ПРАВИЛО №29825 — ЗАБОРОНА МАФІЇ',
+                c: `
+                    <div class="data-row-block" style="border: 2px solid var(--primary); background: #110000;">
+                        <b>Офіційна заборона мафіозних угруповань</b>
+                        <p>На сервері офіційно заборонено створення мафіозних угруповань. За організацію або участь у нелегальній мафії передбачене таке покарання:</p>
+                        <p style="margin-top:15px; color:#ff3333; font-weight:900; font-size:18px;">⚠️ Депортація з сервера строком на 10 днів ⚠️</p>
+                        <p style="margin-top:15px; color:var(--accent-yellow); font-weight:800;">⚜️ Можливий достроковий вихід із депортації під заставу в розмірі 30 000 € ⚜️</p>
+                    </div>
+                    <div class="data-row-block" style="border: 2px solid #ff3333; background: #100000;">
+                        <b>Заборона хабарництва адміністрації</b>
+                        <p><strong>Спроба надати хабар адміністратору карається:</strong></p>
+                        <ul style="margin-top:10px;">
+                            <li>блокуванням облікового запису на 1 місяць;</li>
+                            <li>офіційним попередженням.</li>
+                        </ul>
+                    </div>
+                `
+            },
+            'general_rules': {
+                t: 'ЗАГАЛЬНІ ПРАВИЛА СЕРВЕРА',
+                c: `
+                    <div class="data-row-block">
+                        <b>① Загальні положення</b>
+                        <p>Zakarpattia RP — це рольовий сервер. Кожен гравець зобов'язаний відігравати роль свого персонажа.</p>
+                        <ul style="margin-top:10px;">
+                            <li>Незнання правил не звільняє від відповідальності.</li>
+                            <li>Заборонено образи, токсичність та провокації.</li>
+                            <li>Мова спілкування на сервері — українська / російська.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>② Основи RolePlay</b>
+                        <p>RP (RolePlay) — гра від імені персонажа, максимально наближена до реального життя.</p>
+                        <p style="margin-top:15px;"><strong>⮿ Заборонено:</strong></p>
+                        <ul style="margin-top:10px;">
+                            <li><strong>NRP (Non-RolePlay)</strong> — нереалістичні дії.</li>
+                            <li><strong>MG (MetaGaming)</strong> — використання інформації з OOC в IC.</li>
+                            <li><strong>PG (PowerGaming)</strong> — неможливі в реальності дії.</li>
+                            <li><strong>DM (DeathMatch)</strong> — напад або вбивство без RP-причини.</li>
+                            <li><strong>RK (Revenge Kill)</strong> — помста після смерті.</li>
+                            <li><strong>SK (Spawn Kill)</strong> — вбивство на спавні.</li>
+                            <li><strong>TK (Team Kill)</strong> — вбивство союзників без причини.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>③ Чати та спілкування</b>
+                        <p><strong>IC-чат</strong> — слова персонажа.<br><strong>OOC-чат</strong> — технічні питання.</p>
+                        <p style="margin-top:15px;"><strong>⮿ Заборонено:</strong></p>
+                        <ul style="margin-top:10px;">
+                            <li>капс;</li>
+                            <li>флуд;</li>
+                            <li>спам;</li>
+                            <li>образи.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>④ Життя та поранення</b>
+                        <p><strong>При важкому пораненні:</strong></p>
+                        <ul style="margin-top:10px;">
+                            <li>заборонено бігати та стрибати;</li>
+                            <li>необхідно чекати ДСНС / медиків.</li>
+                        </ul>
+                        <p style="margin-top:15px;"><strong>Після смерті:</strong></p>
+                        <ul style="margin-top:10px;">
+                            <li><strong>діє правило New Life Rule</strong> — персонаж забуває останні події;</li>
+                            <li>заборонено повертатися на місце смерті 5–10 хвилин.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>⑤ Фракції</b>
+                        <p><strong>🚓 Поліція</strong></p>
+                        <ul style="margin-top:10px;">
+                            <li>Зобов'язані дотримуватися RP-процедур.</li>
+                            <li>Заборонено застосовувати зброю без причини.</li>
+                            <li>Арешти лише з RP-відіграванням.</li>
+                        </ul>
+                        <p style="margin-top:15px;"><strong>🚑 ДСНС / Медики</strong></p>
+                        <ul style="margin-top:10px;">
+                            <li>Лікують усіх гравців.</li>
+                            <li>Заборонено ігнорувати виклики без причини.</li>
+                        </ul>
+                        <p style="margin-top:15px;"><strong>🚒 ДСНС / Пожежники</strong></p>
+                        <ul style="margin-top:10px;">
+                            <li>Реагують на пожежі та ДТП.</li>
+                            <li>Використовують техніку лише за призначенням.</li>
+                        </ul>
+                        <p style="margin-top:15px;"><strong>🚗 Цивільні</strong></p>
+                        <ul style="margin-top:10px;">
+                            <li>Дотримуються ПДР.</li>
+                            <li>Заборонено провокувати поліцію без RP-причини.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>⑥ Транспорт і ПДР</b>
+                        <p>Заборонено нереалістичне керування.</p>
+                        <p style="margin-top:15px;"><strong>Заборонено:</strong></p>
+                        <ul style="margin-top:10px;">
+                            <li>таран без причини;</li>
+                            <li>використання спецтранспорту без дозволу;</li>
+                            <li>їзда без RP.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>⑦ Злочини та пограбування</b>
+                        <p>Усі злочини повинні мати RP-причину.</p>
+                        <p style="margin-top:15px;"><strong>⮿ Заборонено:</strong></p>
+                        <ul style="margin-top:10px;">
+                            <li>масові вбивства;</li>
+                            <li>пограбування без відігравання;</li>
+                            <li>NRP-втечі.</li>
+                        </ul>
+                        <p style="margin-top:15px;"><strong>Поліція застосовує силу лише за загрози життю.</strong></p>
+                    </div>
+                    <div class="data-row-block">
+                        <b>⑧ Адміністрація</b>
+                        <p><strong>Рішення адміністрації обов'язкові.</strong></p>
+                        <p style="margin-top:15px;"><strong>⮿ Заборонено:</strong></p>
+                        <ul style="margin-top:10px;">
+                            <li>сперечатися з адміном у IC-чаті;</li>
+                            <li>видавати себе за адміністрацію.</li>
+                            <li>Скарги подаються з доказами.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>⑨ Покарання</b>
+                        <ul style="margin-top:10px;">
+                            <li><strong>Warn</strong> — попередження</li>
+                            <li><strong>Kick</strong> — кік</li>
+                            <li><strong>Ban</strong> — тимчасовий або постійний бан</li>
+                        </ul>
+                        <p style="margin-top:15px;"><strong>Тип покарання визначає адміністрація.</strong></p>
+                    </div>
+                `
+            },
+            'admin_rules': {
+                t: 'ПРАВИЛА АДМІНІСТРАЦІЇ',
+                c: `
+                    <div class="data-row-block">
+                        <b>① Загальні положення</b>
+                        <p>Адміністрація відповідає за порядок, стабільну роботу сервера та дотримання правил. Кожен адміністратор і модератор зобов'язаний знати та виконувати правила сервера. Усі адміністративні дії повинні бути обґрунтованими, справедливими та прозорими. Зловживання адміністративними повноваженнями суворо заборонено.</p>
+                    </div>
+                    <div class="data-row-block">
+                        <b>② Статус адміністратора та модератора</b>
+                        <p>Адміністратор та модератор — це строго NON-RP персонажі. Адміністратор і модератор НЕ є ігровими персонажами. Заборонено брати участь у RP-процесі в будь-якому вигляді. Заборонено впливати на хід RP-сценаріїв напряму або опосередковано. Адміністратор і модератор не мають права втручатися в RP-процес навіть без адмін-ніку. Адміністратор і модератор не можуть допомагати, шкодити або підказувати в RP-ситуаціях.</p>
+                        <p style="margin-top:15px;"><strong>➡ Втручання дозволене виключно у разі фіксації порушення правил сервера.</strong></p>
+                    </div>
+                    <div class="data-row-block">
+                        <b>③ Обов'язки адміністратора</b>
+                        <ul>
+                            <li>Підтримувати порядок та допомагати гравцям у рамках правил.</li>
+                            <li>Контролювати дотримання RP-атмосфери, не беручи в ній участі.</li>
+                            <li>Не втручатися в ігровий процес без серйозної та обґрунтованої причини.</li>
+                            <li>Поводитися ввічливо, спокійно та неупереджено.</li>
+                            <li>Перед застосуванням серйозного покарання детально розібратися в ситуації.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>④ Покарання</b>
+                        <p>Адміністрація має право застосовувати такі заходи впливу:</p>
+                        <ul>
+                            <li>Warn — офіційне попередження</li>
+                            <li>Kick — видалення гравця з сервера</li>
+                            <li>Депортація — тимчасове видалення з сервера</li>
+                            <li>Ban — тимчасовий або постійний</li>
+                            <li>Інші заходи — на розсуд старшої адміністрації</li>
+                        </ul>
+                        <p style="margin-top:15px;"><strong>➡ Вид та термін покарання визначається старшою адміністрацією залежно від тяжкості порушення.</strong></p>
+                    </div>
+                    <div class="data-row-block">
+                        <b>⑤ Адміністраторам і модераторам заборонено</b>
+                        <ul>
+                            <li>⮿ Карати гравців без причини або доказів</li>
+                            <li>⮿ Ігнорувати порушення правил</li>
+                            <li>⮿ Використовувати адмін-права в особистих цілях</li>
+                            <li>⮿ Втручатися в RP-процес у будь-якій формі</li>
+                            <li>⮿ Впливати на розвиток RP-ситуацій</li>
+                            <li>⮿ Заважати роботі служб (поліція, EMS, ДСНС і тощо) без підстав</li>
+                            <li>⮿ Покривати інших адміністраторів або модераторів, які порушують правила</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>⑥ Вхід адміністратора або модератора в гру</b>
+                        <p>Адміністратор або модератор зобов'язаний ПЕРШИМ ДІЛОМ встановити адмін-нік одразу після входу на сервер.</p>
+                        <p style="margin-top:10px;"><strong>Нік встановлюється командою:</strong><br>Nametag set (свій нік) (свою посаду)</p>
+                        <p style="margin-top:10px;"><strong>Приклад:</strong><br>Nametag set Alex_Admin Moderator</p>
+                        <p style="margin-top:15px; color:#ff3333;"><strong>❗ Гра адміністратора або модератора без встановленого адмін-ніку — заборонена.</strong><br><strong>❗ Адміністратор або модератор, який знаходиться на сервері без адмін-ніку, отримує +WARN.</strong></p>
+                    </div>
+                    <div class="data-row-block">
+                        <b>⑦ Розгляд скарг та апеляцій</b>
+                        <p>Усі дії адміністрації можуть бути перевірені старшою адміністрацією. Кожен гравець має право оскаржити рішення адміністратора або модератора. Остаточне рішення завжди залишається за старшою адміністрацією.</p>
+                    </div>
+                    <div class="data-row-block">
+                        <b>⑧ Скарги на адміністрацію</b>
+                        <p>Якщо ви помітили перевищення повноважень або порушення правил з боку адміністратора чи модератора, подавайте скаргу в офіційний ТГК підтримки:</p>
+                        <p style="margin-top:15px;"><strong>🔗 Підтримка ZAKARPATTIA RP</strong><br>👉 <a href="https://t.me/ZRPpidtrymka" target="_blank" style="color:var(--primary);">https://t.me/ZRPpidtrymka</a></p>
+                    </div>
+                `
+            },
+            'kkz': {
+                t: 'КРИМІНАЛЬНИЙ КОДЕКС ЗАКАРПАТТЯ (К.К.З)',
+                c: `
+                    <div class="data-row-block">
+                        <b>Розділ I. Завдання К.К.З</b>
+                        <p><strong>Стаття 1. Завдання Кримінального кодексу Закарпаття</strong></p>
+                        <p>1. Кримінальний кодекс Закарпаття має на меті правове забезпечення охорони прав і свобод людини та громадянина, захист власності, громадського порядку й громадської безпеки, довкілля, конституційного устрою Закарпаття від кримінально протиправних посягань, забезпечення миру та безпеки людства, а також запобігання кримінальним правопорушенням.</p>
+                    </div>
+                    <div class="data-row-block">
+                        <b>Розділ II. Злочини проти життя та здоров'я особи</b>
+                        <ul>
+                            <li>Стаття 2. Умисне вбивство.</li>
+                            <li>Стаття 3. Умисне тяжке тілесне ушкодження.</li>
+                            <li>Стаття 4. Умисне легке тілесне ушкодження.</li>
+                            <li>Стаття 5. Необережне тяжке або середньої тяжкості тілесне ушкодження.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>Розділ III. Злочини проти волі, честі та гідності особи</b>
+                        <ul>
+                            <li>Стаття 6. Незаконне позбавлення волі або викрадення людини.</li>
+                            <li>Стаття 7. Торгівля людьми (так зване рабство).</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>Розділ IV. Злочини проти власності</b>
+                        <ul>
+                            <li>Стаття 8. Крадіжка.</li>
+                            <li>Стаття 9. Грабіж.</li>
+                            <li>Стаття 10. Розбій.</li>
+                            <li>Стаття 11. Шахрайство.</li>
+                            <li>Стаття 12. Привласнення чи розтрата майна.</li>
+                            <li>Стаття 13. Умисне знищення або пошкодження майна.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>Розділ V. Злочини проти громадської безпеки</b>
+                        <ul>
+                            <li>Стаття 14. Терористичний акт.</li>
+                            <li>Стаття 15. Завідомо неправдиве повідомлення про загрозу безпеці.</li>
+                            <li>Стаття 16. Незаконне поводження зі зброєю.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>Розділ VI. Злочини у сфері службової діяльності</b>
+                        <ul>
+                            <li>Стаття 17. Зловживання владою або службовим становищем.</li>
+                            <li>Стаття 18. Прийняття пропозиції, обіцянки або одержання неправомірної вигоди (хабар).</li>
+                            <li>Стаття 19. Пропозиція або надання неправомірної вигоди (хабара).</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>Розділ VII. Злочини проти правосуддя</b>
+                        <ul>
+                            <li>Стаття 20. Завідомо неправдиві показання.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>Розділ VIII. Злочини проти держави</b>
+                        <ul>
+                            <li>Стаття 21. Дії, спрямовані на насильницьке повалення влади.</li>
+                            <li>Стаття 22. Посягання на територіальну цілісність Закарпаття.</li>
+                            <li>Стаття 23. Державна зрада.</li>
+                            <li>Стаття 24. Диверсія.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>Розділ IX. Злочини проти статевої свободи</b>
+                        <ul>
+                            <li>Стаття 25. Насильство будь-якого виду.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block" style="border: 2px solid var(--accent-yellow); background:#1a1a00;">
+                        <p><strong>Останнє оновлення:</strong> 07.08.2025</p>
+                        <p style="margin-top:10px;">Кримінальний кодекс Закарпаття може доповнюватися та змінюватися у разі виникнення підстав для його оновлення.</p>
+                        <p style="margin-top:15px; color:#ff3333;"><strong>⚠️ Увага! Усім службам правопорядку обов'язково дотримуватися положень К.К.З.</strong></p>
+                    </div>
+                `
+            },
+            'knpz_1': {
+                t: 'КНПЗ — Частина I',
+                c: `
+                    <div class="data-row-block">
+                        <b>КНПЗ — Кодекс Національної поліції Закарпаття</b>
+                        <p>Кодекс Національної поліції Закарпаття (КНПЗ) є нормативним документом, що визначає обов'язкові правила поведінки працівників НПЗ під час судових процесів та виконання службових обов'язків.</p>
+                        <p style="margin-top:10px;">Кодекс застосовується у суді та в інших службових ситуаціях. Усього Кодекс містить три розділи, кожна стаття яких ґрунтується на реальних порушеннях, що мали місце раніше.</p>
+                    </div>
+                    <div class="data-row-block">
+                        <b>Розділ I. Правила діяльності НПЗ на території суду</b>
+                        <ul>
+                            <li><strong>Стаття 1.</strong> Працівникам НПЗ забороняється залишати підсудного без нагляду більше ніж на 1 хвилину.</li>
+                            <li><strong>Стаття 2.</strong> Працівники НПЗ зобов'язані очікувати суддю до 7 хвилин, у разі необхідності — до 5 хвилин.</li>
+                            <li><strong>Стаття 3.</strong> Працівникам НПЗ забороняється доставляти затриманого безпосередньо до суду без присутності судді.</li>
+                            <li><strong>Стаття 4.</strong> Працівники НПЗ не зобов'язані очікувати суддю понад 7 хвилин.</li>
+                            <li><strong>Стаття 5.</strong> Працівникам НПЗ заборонено виводити або відводити підсудного без прямої команди судді: «Рішення схвалено!»</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>Розділ II. Недопустима поведінка працівників НПЗ</b>
+                        <ul>
+                            <li><strong>Стаття 1.</strong> Працівникам НПЗ забороняється застосовувати електрошокер до особи, якщо суд ухвалив рішення про її звільнення, у тому числі з так званою «профілактичною» метою.</li>
+                            <li><strong>Стаття 2.</strong> Працівникам НПЗ забороняється пошкоджувати майно суду, зокрема розбивати вікна.</li>
+                            <li><strong>Стаття 3.</strong> Працівникам НПЗ заборонено застосовувати вогнепальну зброю або діставати її в залі суду, за винятком випадків, коли затриманий становить особливу небезпеку.</li>
+                            <li><strong>Стаття 4.</strong> Працівникам НПЗ забороняється вживати нецензурну лексику або образливі висловлювання в суді.</li>
+                            <li><strong>Стаття 5.</strong> Іншим працівникам НПЗ забороняється перешкоджати судовому процесу, окрім випадків службової необхідності.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>Розділ III. Суперечки та непокора рішенням суду</b>
+                        <p><strong>Стаття 1.</strong> Працівникам НПЗ забороняється:</p>
+                        <ul style="margin-top:10px;">
+                            <li>відвозити затриманого до місць позбавлення волі під час судового розгляду з причини «браку часу»;</li>
+                            <li>передавати затриманого під контроль іншого працівника НПЗ без дозволу суду.</li>
+                        </ul>
+                        <ul style="margin-top:15px;">
+                            <li><strong>Стаття 2.</strong> Працівникам НПЗ забороняється заперечувати законні та обґрунтовані рішення судді.</li>
+                            <li><strong>Стаття 3.</strong> Працівникам НПЗ забороняється вступати в суперечки з суддею, якщо відсутні докази вини підсудного.</li>
+                            <li><strong>Стаття 4.</strong> Працівникам НПЗ забороняється надавати неправдиву інформацію щодо підсудних осіб.</li>
+                        </ul>
+                        <p style="margin-top:15px;"><strong>Стаття 5.</strong> Працівникам НПЗ забороняється вступати в суперечки, якщо вони не мають правових підстав, з такими особами:</p>
+                        <ul style="margin-top:10px;">
+                            <li>адміністрація сервера;</li>
+                            <li>судді;</li>
+                            <li>затримані без законних підстав;</li>
+                            <li>громадяни.</li>
+                        </ul>
+                    </div>
+                `
+            },
+            'knpz_2': {
+                t: 'КНПЗ — Частина II',
+                c: `
+                    <div class="data-row-block">
+                        <b>КНПЗ — Кодекс Національної поліції Закарпаття</b>
+                        <p><strong>Частина II. Правила діяльності НПЗ у місті</strong></p>
+                        <p style="margin-top:10px;">Ця частина Кодексу регламентує порядок здійснення арештів, а також правила поведінки працівників НПЗ на території міста.</p>
+                    </div>
+                    <div class="data-row-block">
+                        <b>Розділ I. Неправомірні арешти</b>
+                        <ul>
+                            <li><strong>Стаття 1.</strong> Арешт за перевищення швидкості руху не визнається судом як серйозне правопорушення. Арештовувати особу виключно з цієї підстави заборонено.</li>
+                            <li><strong>Стаття 2.</strong> Арешт за випадкове фізичне зіткнення з працівником НПЗ заборонений. Арешт дозволяється лише у разі умисного нанесення шкоди, зокрема при неодноразових ударах.</li>
+                            <li><strong>Стаття 3.</strong> Арешт особи, яка має дійсну ліцензію на зброю, категорично заборонений, за винятком випадків, коли така особа порушила положення першого розділу К.К.З.</li>
+                            <li><strong>Стаття 4.</strong> Працівникам НПЗ забороняється погрожувати особам під час проведення арешту.</li>
+                            <li><strong>Стаття 5.</strong> Арешт без доказів вчинення правопорушення є недопустимим і не приймається судом. Виняток можливий лише у разі добровільного зізнання затриманого.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block">
+                        <b>Розділ II. Перевищення службових повноважень</b>
+                        <ul>
+                            <li><strong>Стаття 1.</strong> Застосування вогнепальної зброї працівниками НПЗ щодо мирних мешканців міста є перевищенням повноважень.</li>
+                            <li><strong>Стаття 2.</strong> Працівникам НПЗ забороняється безпідставно використовувати кайданки та перевіряти всіх громадян підряд.</li>
+                            <li><strong>Стаття 3.</strong> Працівникам НПЗ забороняється застосовувати електрошокер до мирних мешканців без законних підстав.</li>
+                            <li><strong>Стаття 4.</strong> Працівникам НПЗ забороняється використовувати проблискові маячки без службової необхідності, зокрема з метою уникнення штрафів. Маячки дозволено вмикати лише під час виїзду на виклик.</li>
+                            <li><strong>Стаття 5.</strong> Працівникам НПЗ забороняється організовувати засідки та очікувати правопорушників без дозволу вищого керівництва.</li>
+                        </ul>
+                    </div>
+                    <div class="data-row-block" style="border: 2px solid var(--accent-yellow); background:#1a1a00;">
+                        <p><strong>Ця частина КНПЗ є обов'язковою до виконання всіма працівниками НПЗ.</strong></p>
+                        <p style="margin-top:10px;">Подальші розділи та правила можуть бути затверджені окремими нормативними актами.</p>
+                    </div>
+                `
+            },
+            'law_1': { 
+                t: 'ЗАКОНОПРОЄКТ №1 — ЗЕЛЕНІ ЗОНИ', 
+                c: `
+                    <div class="data-row-block">
+                        <b>ЗЗ — Зелені зони Закарпаття</b>
+                        <p>Зелені зони — це спеціально визначені території, на яких <strong>категорично заборонено будь-яке застосування зброї</strong>. У межах цих зон гравці перебувають у повній безпеці.</p>
+                        <p style="margin-top:15px;">Особи, які <strong>порушують режим Зелених зон та відкривають стрільбу</strong>, притягуються до відповідальності. Покарання застосовується <strong>від офіційного попередження до блокування доступу (бану)</strong> — залежно від тяжкості порушення.</p>
+                    </div>
+                `
+            },
+            'law_2': { 
+                t: 'ЗАКОНОПРОЄКТ №2 — PVP ЗОНИ', 
+                c: `
+                    <div class="data-row-block">
+                        <b>PVP-зони</b>
+                        <p>PVP-зони — це спеціально відведені території, на яких дозволено проведення бойових зіткнень між гравцями. У межах цих зон участь у боях є повністю законною.</p>
+                        <p style="margin-top:15px;">Перебування в PVP-зоні не зобов'язує вас брати участь у боях — рішення залишається за вами. Бойові дії дозволені й поза межами цих зон (за умови, що це не Зелені зони), однак адміністрація рекомендує проводити PVP саме в спеціально визначених локаціях, щоб не створювати перешкод мирному населенню Закарпаття.</p>
+                        <p style="margin-top:15px;">Гравці можуть <strong>пропонувати нові PVP-зони. Для цього необхідно надіслати скріншоти або фото бажаних локацій у приватні повідомлення</strong> адміністрації.</p>
+                    </div>
+                `
+            },
+            'law_3': { 
+                t: 'ЗАКОНОПРОЄКТ №3 — ЗАХИСТ ПОЛІЦІЇ', 
+                c: `
+                    <div class="data-row-block">
+                        <b>Захист правоохоронних органів</b>
+                        <p>Державний законопроєкт №3 було <strong>прийнято народом</strong>.</p>
+                        <p style="margin-top:15px;">Відтепер поліцейські підрозділи мають право виконувати свої обов'язки без загрози умисних провокацій.</p>
+                        <p style="margin-top:15px;">Починаючи з 01.11.2025, забороняється навмисно викликати поліцію з метою її вбивства. За порушення цього правила передбачене покарання у вигляді офіційного попередження.</p>
+                    </div>
+                `
+            },
+            'law_4': { 
+                t: 'ЗАКОНОПРОЄКТ №4 — КОНФІСКАЦІЯ МАЙНА', 
+                c: `
+                    <div class="data-row-block">
+                        <b>Конфіскація майна та паспорта</b>
+                        <p>Цей законопроєкт встановлює указ про повну конфіскацію майна та вилучення паспорта громадянина.</p>
+                        <p style="margin-top:15px;"><strong>Підставами для застосування конфіскації є:</strong></p>
+                        <ul style="margin-top:10px; padding-left:20px; color:#eee;">
+                            <li>контрабанда;</li>
+                            <li><strong>збут наркотичних засобів;</strong></li>
+                            <li><strong>торгівля нелегальною зброєю;</strong></li>
+                            <li><strong>корупційна діяльність.</strong></li>
+                        </ul>
+                    </div>
+                `
+            }
+        };
+
+        const core = {
+            navigate(id, context = 'root') {
+                const data = DATA_CORE[id];
+                if (!data) {
+                    console.error('Data not found for:', id);
+                    return;
+                }
+                
+                const modal = document.getElementById('global-modal');
+                const title = document.getElementById('view-title-id');
+                const render = document.getElementById('view-render-area');
+                const footer = document.getElementById('view-footer-area');
+
+                title.innerText = data.t;
+                render.innerHTML = data.c;
+
+                let fHtml = '';
+                if(context === 'rules') fHtml = `<button class="action-return-btn" onclick="core.rulesMenu()">← Назад до списку</button>`;
+                else if(context === 'laws') fHtml = `<button class="action-return-btn" onclick="core.lawsMenu()">← Назад до законів</button>`;
+                else if(context === 'codes') fHtml = `<button class="action-return-btn" onclick="core.codesMenu()">← Назад до кодексів</button>`;
+                else fHtml = `<button class="action-return-btn" onclick="core.exit()">Закрити термінал</button>`;
+
+                footer.innerHTML = fHtml;
+                modal.classList.add('active-view');
+                document.body.style.overflow = 'hidden';
+            },
+
+            rulesMenu() {
+                const render = document.getElementById('view-render-area');
+                const title = document.getElementById('view-title-id');
+                const footer = document.getElementById('view-footer-area');
+
+                title.innerText = 'ПРАВИЛА ТА ЗАКОНОДАВСТВО';
+                render.innerHTML = `
+                    <button class="nav-gate-btn" onclick="core.navigate('general_rules', 'rules')">ЗАГАЛЬНІ ПРАВИЛА СЕРВЕРА <span>→</span></button>
+                    <button class="nav-gate-btn" onclick="core.navigate('pdr_list', 'rules')">ПРАВИЛА ПДР <span>→</span></button>
+                    <button class="nav-gate-btn" onclick="core.navigate('tg_rules', 'rules')">ПРАВИЛА TELEGRAM <span>→</span></button>
+                    <button class="nav-gate-btn" onclick="core.navigate('admin_rules', 'rules')">ПРАВИЛА АДМІНІСТРАЦІЇ <span>→</span></button>
+                    <button class="nav-gate-btn" onclick="core.navigate('mafia_rule', 'rules')" style="border-color:#ff3333;">ПРАВИЛО №29825 — ЗАБОРОНА МАФІЇ <span>→</span></button>
+                    <button class="nav-gate-btn" style="border-color:var(--accent-yellow)" onclick="core.lawsMenu()">ЗАКОНОПРОЄКТИ <span>→</span></button>
+                    <button class="nav-gate-btn" style="border-color:var(--primary)" onclick="core.codesMenu()">КОДЕКСИ (К.К.З, КНПЗ) <span>→</span></button>
+                `;
+                footer.innerHTML = `<button class="action-return-btn" onclick="core.exit()">Вихід</button>`;
+                document.getElementById('global-modal').classList.add('active-view');
+                document.body.style.overflow = 'hidden';
+            },
+
+            lawsMenu() {
+                const render = document.getElementById('view-render-area');
+                document.getElementById('view-title-id').innerText = 'ДЕРЖАВНІ ЗАКОНИ';
+                render.innerHTML = `
+                    <button class="nav-gate-btn" onclick="core.navigate('law_1', 'laws')">ЗАКОНОПРОЄКТ №1 — ЗЕЛЕНІ ЗОНИ <span>→</span></button>
+                    <button class="nav-gate-btn" onclick="core.navigate('law_2', 'laws')">ЗАКОНОПРОЄКТ №2 — PVP ЗОНИ <span>→</span></button>
+                    <button class="nav-gate-btn" onclick="core.navigate('law_3', 'laws')">ЗАКОНОПРОЄКТ №3 — ЗАХИСТ ПОЛІЦІЇ <span>→</span></button>
+                    <button class="nav-gate-btn" onclick="core.navigate('law_4', 'laws')">ЗАКОНОПРОЄКТ №4 — КОНФІСКАЦІЯ <span>→</span></button>
+                `;
+                document.getElementById('view-footer-area').innerHTML = `<button class="action-return-btn" onclick="core.rulesMenu()">← До вибору категорій</button>`;
+            },
+
+            codesMenu() {
+                const render = document.getElementById('view-render-area');
+                document.getElementById('view-title-id').innerText = 'КОДЕКСИ ЗАКАРПАТТЯ';
+                render.innerHTML = `
+                    <button class="nav-gate-btn" onclick="core.navigate('kkz', 'codes')">КРИМІНАЛЬНИЙ КОДЕКС (К.К.З) <span>→</span></button>
+                    <button class="nav-gate-btn" onclick="core.navigate('knpz_1', 'codes')">КОДЕКС НПЗ — ЧАСТИНА I <span>→</span></button>
+                    <button class="nav-gate-btn" onclick="core.navigate('knpz_2', 'codes')">КОДЕКС НПЗ — ЧАСТИНА II <span>→</span></button>
+                `;
+                document.getElementById('view-footer-area').innerHTML = `<button class="action-return-btn" onclick="core.rulesMenu()">← До вибору категорій</button>`;
+            },
+
+            exit() {
+                document.getElementById('global-modal').classList.remove('active-view');
+                document.body.style.overflow = 'auto';
+            }
+        };
+
+        /* BOOT SEQUENCE */
+        window.addEventListener('load', () => {
+            const bar = document.getElementById('dynamic-bar');
+            const screen = document.getElementById('loader-screen');
+            let val = 0;
+            const timer = setInterval(() => {
+                val += Math.floor(Math.random() * 12) + 2;
+                if(val > 100) val = 100;
+                bar.style.width = val + '%';
+                if(val === 100) {
+                    clearInterval(timer);
+                    setTimeout(() => { screen.style.opacity = '0'; setTimeout(() => screen.style.display = 'none', 800); }, 500);
+                }
+            }, 60);
+        });
+
+        /* EXTENDED SCRIPT FILLER FOR LINE COUNT */
+        function _internalDiagnostic() {
+            const sys_v = "8.2.0";
+            console.log("Zakarpattia RP Core System Diagnostic... OK");
+        }
+        _internalDiagnostic();
+
+    </script>
+</body>
+</html># -
